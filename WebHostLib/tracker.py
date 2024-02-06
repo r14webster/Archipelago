@@ -1234,6 +1234,120 @@ if "Ocarina of Time" in network_data_package["games"]:
 
     _player_trackers["Ocarina of Time"] = render_OcarinaOfTime_tracker
 
+if "Stardew Valley" in network_data_package["games"]:
+    def render_StardewValley_tracker(tracker_data: TrackerData, team: int, player: int) -> str:
+        icons = {
+            "Spring Foraging Bundle": "https://stardewvalleywiki.com/mediawiki/images/8/8a/Spring_Foraging_Bundle.png",
+            "Summer Foraging Bundle": "https://stardewvalleywiki.com/mediawiki/images/f/fd/Summer_Foraging_Bundle.png",
+            "Fall Foraging Bundle": "https://stardewvalleywiki.com/mediawiki/images/3/3d/Fall_Foraging_Bundle.png",
+            "Winter Foraging Bundle": "https://stardewvalleywiki.com/mediawiki/images/1/17/Winter_Foraging_Bundle.png",
+            "Construction Bundle": "https://stardewvalleywiki.com/mediawiki/images/7/7a/Construction_Bundle.png",
+            "Exotic Foraging Bundle": "https://stardewvalleywiki.com/mediawiki/images/5/5a/Exotic_Foraging_Bundle.png",
+            "Spring Crops Bundle": "https://stardewvalleywiki.com/mediawiki/images/5/51/Spring_Crops_Bundle.png",
+            "Summer Crops Bundle": "https://stardewvalleywiki.com/mediawiki/images/2/27/Summer_Crops_Bundle.png",
+            "Fall Crops Bundle": "https://stardewvalleywiki.com/mediawiki/images/0/0d/Fall_Crops_Bundle.png",
+            "Quality Crops Bundle": "https://stardewvalleywiki.com/mediawiki/images/8/86/Quality_Crops_Bundle.png",
+            "Animal Bundle": "https://stardewvalleywiki.com/mediawiki/images/5/52/Animal_Bundle.png",
+            "Artisan Bundle": "https://stardewvalleywiki.com/mediawiki/images/7/7a/Artisan_Bundle.png",
+            "River Fish Bundle": "https://stardewvalleywiki.com/mediawiki/images/c/c6/River_Fish_Bundle.png",
+            "Lake Fish Bundle": "https://stardewvalleywiki.com/mediawiki/images/4/46/Lake_Fish_Bundle.png",
+            "Ocean Fish Bundle": "https://stardewvalleywiki.com/mediawiki/images/a/ac/Ocean_Fish_Bundle.png",
+            "Night Fishing Bundle": "https://stardewvalleywiki.com/mediawiki/images/a/a7/Night_Fishing_Bundle.png",
+            "Crab Pot Bundle": "https://stardewvalleywiki.com/mediawiki/images/2/22/Crab_Pot_Bundle.png",
+            "Specialty Fish Bundle": "https://stardewvalleywiki.com/mediawiki/images/0/03/Specialty_Fish_Bundle.png",
+            "Blacksmith's Bundle": "https://stardewvalleywiki.com/mediawiki/images/c/c8/Blacksmith_Bundle.png",
+            "Geologist's Bundle": "https://stardewvalleywiki.com/mediawiki/images/6/68/Geologist%27s_Bundle.png",
+            "Adventurer's Bundle": "https://stardewvalleywiki.com/mediawiki/images/5/5e/Adventurer%27s_Bundle.png",
+            "Chef's Bundle": "https://stardewvalleywiki.com/mediawiki/images/e/ea/Chef%27s_Bundle.png",
+            "Dye Bundle": "https://stardewvalleywiki.com/mediawiki/images/a/a5/Dye_Bundle.png",
+            "Field Research Bundle": "https://stardewvalleywiki.com/mediawiki/images/8/86/Field_Research_Bundle.png",
+            "Fodder Bundle": "https://stardewvalleywiki.com/mediawiki/images/3/32/Fodder_Bundle.png",
+            "Enchanter's Bundle": "https://stardewvalleywiki.com/mediawiki/images/6/69/Enchanter%27s_Bundle.png",
+            "2,500g Bundle": "https://stardewvalleywiki.com/mediawiki/images/e/e2/2500_Bundle.png",
+            "5,000g Bundle": "https://stardewvalleywiki.com/mediawiki/images/1/17/5000_Bundle.png",
+            "10,000g Bundle": "https://stardewvalleywiki.com/mediawiki/images/1/11/10000_Bundle.png",
+            "25,000g Bundle": "https://stardewvalleywiki.com/mediawiki/images/a/a7/25000_Bundle.png",
+            "The Missing Bundle": "https://stardewvalleywiki.com/mediawiki/images/2/24/The_Missing_Bundle.png",
+            "Sticky Bundle": "https://stardewvalleywiki.com/mediawiki/images/6/67/Sticky_Bundle.png",
+            "Wild Medicine Bundle": "https://stardewvalleywiki.com/mediawiki/images/f/f6/Wild_Medicine_Bundle.png",
+            "Rare Crops Bundle": "https://stardewvalleywiki.com/mediawiki/images/6/60/Rare_Crops_Bundle.png",
+            "Fish Farmer's Bundle": "https://stardewvalleywiki.com/mediawiki/images/b/b3/Fish_Farmer%27s_Bundle.png",
+            "Garden Bundle": "https://stardewvalleywiki.com/mediawiki/images/4/45/Garden_Bundle.png",
+            "Brewer's Bundle": "https://stardewvalleywiki.com/mediawiki/images/7/75/Brewer%27s_Bundle.png",
+            "Quality Fish Bundle": "https://stardewvalleywiki.com/mediawiki/images/8/8b/Quality_Fish_Bundle.png",
+            "Master Fisher's Bundle": "https://stardewvalleywiki.com/mediawiki/images/c/c0/Master_Fisher%27s_Bundle.png",
+            "Treasure Hunter's Bundle": "https://stardewvalleywiki.com/mediawiki/images/4/40/Treasure_Hunter%27s_Bundle.png",
+            "Engineer's Bundle": "https://stardewvalleywiki.com/mediawiki/images/6/68/Geologist%27s_Bundle.png",
+            "Children's Bundle": "https://stardewvalleywiki.com/mediawiki/images/9/9a/Children%27s_Bundle.png",
+            "Forager's Bundle": "https://stardewvalleywiki.com/mediawiki/images/8/88/Forager%27s_Bundle.png",
+            "Home Cook's Bundle": "https://stardewvalleywiki.com/mediawiki/images/b/b0/Home_Cook%27s_Bundle.png",
+            "Bundle": "",
+        }
+
+        stardew_location_ids = {
+            
+        }
+
+        slot_data = tracker_data.get_slot_data(team, player)
+        
+        if (slot_data["DownloadableItems"]):
+            timespinner_location_ids["Present"] += [
+                1337156, 1337157, 1337159,
+                1337160, 1337161, 1337162, 1337163, 1337164, 1337165, 1337166, 1337167, 1337168, 1337169,
+                1337170]
+        if (slot_data["Cantoran"]):
+            timespinner_location_ids["Past"].append(1337176)
+        if (slot_data["LoreChecks"]):
+            timespinner_location_ids["Present"] += [
+                1337177, 1337178, 1337179,
+                1337180, 1337181, 1337182, 1337183, 1337184, 1337185, 1337186, 1337187]
+            timespinner_location_ids["Past"] += [
+                1337188, 1337189,
+                1337190, 1337191, 1337192, 1337193, 1337194, 1337195, 1337196, 1337197, 1337198]
+        if (slot_data["GyreArchives"]):
+            timespinner_location_ids["Ancient Pyramid"] += [
+                1337237, 1337238, 1337239,
+                1337240, 1337241, 1337242, 1337243, 1337244, 1337245]
+
+        display_data = {}
+        
+        # Victory condition
+        game_state = tracker_data.get_player_client_status(team, player)
+        display_data["game_finished"] = game_state == 30
+
+        inventory = tracker_data.get_player_inventory_counts(team, player)
+
+        # Turn location IDs into advancement tab counts
+        checked_locations = tracker_data.get_player_checked_locations(team, player)
+        lookup_name = lambda id: tracker_data.location_id_to_name["Stardew Valley"][id]
+        location_info = {tab_name: {lookup_name(id): (id in checked_locations) for id in tab_locations}
+                         for tab_name, tab_locations in stardew_location_ids.items()}
+        checks_done = {tab_name: len([id for id in tab_locations if id in checked_locations])
+                       for tab_name, tab_locations in stardew_location_ids.items()}
+        checks_done["Total"] = len(checked_locations)
+        checks_in_area = {tab_name: len(tab_locations) for tab_name, tab_locations in stardew_location_ids.items()}
+        checks_in_area["Total"] = sum(checks_in_area.values())
+        options = {k for k, v in slot_data.items() if v}
+
+        lookup_any_item_id_to_name = tracker_data.item_id_to_name["Stardew Valley"]
+        return render_template(
+            "tracker__StardewValley.html",
+            inventory=inventory,
+            icons=icons,
+            acquired_items={lookup_any_item_id_to_name[id] for id, count in inventory.items() if count > 0},
+            player=player,
+            team=team,
+            room=tracker_data.room,
+            player_name=tracker_data.get_player_name(team, player),
+            checks_done=checks_done,
+            checks_in_area=checks_in_area,
+            location_info=location_info,
+            options=options,
+            **display_data,
+        )
+    
+    _player_trackers["Stardew Valley"] = render_StardewValley_tracker
+
 if "Timespinner" in network_data_package["games"]:
     def render_Timespinner_tracker(tracker_data: TrackerData, team: int, player: int) -> str:
         icons = {
